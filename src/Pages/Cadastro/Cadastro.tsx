@@ -4,16 +4,13 @@ import {
     Input,
     Select,
 } from 'antd';
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { DatePickerProps } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
+import { api } from '../../lib/api';
 
 const { Option } = Select;
-
-type NotificationType = 'success';
-
-const dateFormat = 'DD/MM/YYYY';
 
 const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     console.log(date, dateString);
@@ -26,24 +23,27 @@ const formItemLayout = {
     },
     wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 16 },
-    },
-};
-const tailFormItemLayout = {
-    wrapperCol: {
-        xs: {
-            span: 24,
-            offset: 0,
-        },
-        sm: {
-            span: 16,
-            offset: 8,
-        },
+        sm: { span: 10 },
     },
 };
 
 const Cadastro: React.FC = () => {
+
     const [form] = Form.useForm();
+
+    const cep = Form.useWatch('cep', form)
+    useEffect(() => {
+        const getCep = async (cep: string) => {
+            const response = await api.get(`cep/${cep}`)
+            const { logradouro, localidade, uf } = response.data
+            form.setFieldValue('residence', `${logradouro}`)
+            form.setFieldValue('localidade', `${localidade}`)
+            form.setFieldValue('uf', `${uf}`)
+        }
+        if (cep && cep.length == 8) {
+            getCep(cep)
+        }
+    }, [cep])
 
     const navigate = useNavigate();
 
@@ -52,8 +52,6 @@ const Cadastro: React.FC = () => {
         openSuccessNotification('CADASTRO REALIZADO COM SUCESSO')
         navigate('/login');
     };
-
-
 
     return (
         <Form
@@ -107,16 +105,50 @@ const Cadastro: React.FC = () => {
             </Form.Item>
 
             <Form.Item
-                name="residence"
-                label="Endereço"
+                name="nascimento"
+                label="Data de Nascimento"
                 rules={[
                     {
                         required: true,
-                        message: 'Insira o seu endereço'
+                        message: 'Insira sua data de nascimento'
+                    }
+                ]}
+            >
+                <Input placeholder='DD/MM/AAAA' />
+            </Form.Item>
+
+            <Form.Item
+                name="cep"
+                label="CEP"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Insira o seu CEP'
                     },
                 ]}
             >
                 <Input />
+            </Form.Item>
+
+            <Form.Item
+                name="residence"
+                label="Endereço"
+            >
+                <Input disabled />
+            </Form.Item>
+
+            <Form.Item
+                name="localidade"
+                label="Cidade"
+            >
+                <Input disabled />
+            </Form.Item>
+
+            <Form.Item
+                name="uf"
+                label="Estado"
+            >
+                <Input disabled />
             </Form.Item>
 
             <Form.Item
@@ -129,7 +161,7 @@ const Cadastro: React.FC = () => {
                     }
                 ]}
             >
-                <Input />
+                <Input prefix='+55 (81)' />
             </Form.Item>
 
             <Form.Item

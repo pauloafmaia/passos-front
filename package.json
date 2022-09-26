@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.0.6",
     "add-to-calendar-button": "^1.15.5",
     "antd": "^4.23.2",
+    "axios": "^0.27.2",
     "moedim": "^0.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
