@@ -50,20 +50,13 @@ function App() {
   return (
     <Router>
       <Layout>
-        <Header className="site-layout-background" style={{ padding: 0 }} />
+        <Header className="site-layout-background" style={{ padding: 0 }} /> 
         <Layout>
           <Sider>
             <div className="logo">
             </div>
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
-            <Header className='icones-rede-social' style={{ padding: 0 }}>
-              <Space>
-                <IconFont type='icon-facebook' />
-                <IconFont type='icon-instagram' />
-                <IconFont type='icon-spotify' />
-                <IconFont type='icon_youtube' />
-                <IconFont type='icon-twitter' />
-              </Space>
+            <Header className='icones-rede-social' style={{ padding: 0 }}> 
             </Header>
           </Sider>
           <Layout
