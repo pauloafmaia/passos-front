@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import RoutesApp from './Routes/Routes';
+import RoutesApp from './routes/Routes';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 import { Menu, Layout, Space } from 'antd';
@@ -42,7 +42,8 @@ const items = [
   getItem(<Link to='/contato'>Contato</Link>, '6', <MailOutlined />),
   getItem('Usuário', '4', <UserOutlined />, [
     getItem(<Link to='/login'>Login</Link>, '4.1', <LoginOutlined />),
-    getItem(<Link to='/cadastro'>Cadastro</Link>, '4.2', <UserAddOutlined />),
+    getItem(<Link to='/usuarios'>Usuários</Link>, '4.2', <UserAddOutlined />),
+    getItem(<Link to='/usuarios/cadastro'>Cadastro</Link>, '4.3', <UserAddOutlined />),
   ]),
 ];
 
@@ -50,13 +51,13 @@ function App() {
   return (
     <Router>
       <Layout>
-        <Header className="site-layout-background" style={{ padding: 0 }} /> 
+        <Header className="site-layout-background" style={{ padding: 0 }} />
         <Layout>
           <Sider>
             <div className="logo">
             </div>
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
-            <Header className='icones-rede-social' style={{ padding: 0 }}> 
+            <Header className='icones-rede-social' style={{ padding: 0 }}>
             </Header>
           </Sider>
           <Layout

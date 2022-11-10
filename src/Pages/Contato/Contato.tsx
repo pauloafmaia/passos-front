@@ -15,7 +15,7 @@ const validateMessages = {
     },
 };
 
-const Contato: React.FC = () => {
+export const Contato: React.FC = () => {
     const onFinish = (values: any) => {
         console.log(values);
         openSuccessNotification('MENSAGEM ENVIADA COM SUCESSO')
@@ -51,5 +51,3 @@ const Contato: React.FC = () => {
         </Form>
     );
 };
-
-export default Contato;

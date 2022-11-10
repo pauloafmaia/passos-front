@@ -3,7 +3,7 @@ import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 import type { Moment } from 'moment';
 import React from 'react';
 
-const Agenda: React.FC = () => {
+export const Agenda: React.FC = () => {
     const onPanelChange = (value: Moment, mode: CalendarMode) => {
         console.log(value.format('YYYY-MM-DD'), mode);
     };
@@ -14,5 +14,3 @@ const Agenda: React.FC = () => {
         </div>
     );
 };
-
-export default Agenda;

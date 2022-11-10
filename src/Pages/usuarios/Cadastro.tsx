@@ -27,7 +27,7 @@ const formItemLayout = {
     },
 };
 
-const Cadastro: React.FC = () => {
+export const Cadastro: React.FC = () => {
 
     const [form] = Form.useForm();
 
@@ -91,100 +91,9 @@ const Cadastro: React.FC = () => {
                 <Input.Password />
             </Form.Item>
 
-            <Form.Item
-                name="name"
-                label="Nome Completo"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Insira seu nome completo'
-                    }
-                ]}
-            >
-                <Input />
-            </Form.Item>
-
-            <Form.Item
-                name="nascimento"
-                label="Data de Nascimento"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Insira sua data de nascimento'
-                    }
-                ]}
-            >
-                <Input placeholder='DD/MM/AAAA' />
-            </Form.Item>
-
-            <Form.Item
-                name="cep"
-                label="CEP"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Insira o seu CEP'
-                    },
-                ]}
-            >
-                <Input />
-            </Form.Item>
-
-            <Form.Item
-                name="residence"
-                label="Endereço"
-            >
-                <Input disabled />
-            </Form.Item>
-
-            <Form.Item
-                name="localidade"
-                label="Cidade"
-            >
-                <Input disabled />
-            </Form.Item>
-
-            <Form.Item
-                name="uf"
-                label="Estado"
-            >
-                <Input disabled />
-            </Form.Item>
-
-            <Form.Item
-                name="phone"
-                label="Celular"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Insira seu celular'
-                    }
-                ]}
-            >
-                <Input prefix='+55 (81)' />
-            </Form.Item>
-
-            <Form.Item
-                name="gender"
-                label="Gênero"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Insira seu gênero'
-                    }
-                ]}
-            >
-                <Select placeholder="Selecione">
-                    <Option value="male">Masculino</Option>
-                    <Option value="female">Feminino</Option>
-                </Select>
-            </Form.Item>
-
             <Button type="primary" htmlType="submit">
                 REGISTRAR
             </Button>
         </Form>
     );
 };
-
-export default Cadastro;

@@ -1,3 +1,3 @@
 import axios from "axios";
 
-export const api = axios.create({ baseURL: 'https://api.iecbeventos.com.br/' })
+export const api = axios.create({ baseURL: 'http://localhost:8080/passos/api' })

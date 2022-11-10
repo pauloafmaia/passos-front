@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
 
 
-const Login: React.FC = () => {
+export const Login: React.FC = () => {
 
     const navigate = useNavigate();
 
@@ -57,4 +57,3 @@ const Login: React.FC = () => {
     );
 };
 
-export default Login;

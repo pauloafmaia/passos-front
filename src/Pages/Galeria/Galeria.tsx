@@ -9,7 +9,7 @@ const contentStyle: React.CSSProperties = {
     background: '#364d79',
 };
 
-const Galeria: React.FC = () => {
+export const Galeria: React.FC = () => {
     const onChange = (currentSlide: number) => {
         console.log(currentSlide);
     };
@@ -50,5 +50,3 @@ const Galeria: React.FC = () => {
         </Carousel>
     );
 };
-
-export default Galeria;

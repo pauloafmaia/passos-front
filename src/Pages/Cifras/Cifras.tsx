@@ -39,7 +39,7 @@ const menu = (
     />
 );
 
-const Cifras: React.FC = () => (
+export const Cifras: React.FC = () => (
     <Dropdown overlay={menu}>
         <a onClick={e => e.preventDefault()}>
             <Space>
@@ -49,5 +49,3 @@ const Cifras: React.FC = () => (
         </a>
     </Dropdown>
 );
-
-export default Cifras;
