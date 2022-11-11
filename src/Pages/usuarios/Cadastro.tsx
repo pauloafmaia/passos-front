@@ -4,9 +4,9 @@ import {
     Input,
     Select,
 } from 'antd';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { DatePickerProps } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
 import { api } from '../../lib/api';
 
@@ -29,9 +29,21 @@ const formItemLayout = {
 
 export const Cadastro: React.FC = () => {
 
+    const { id } = useParams()
+
     const [form] = Form.useForm();
 
     const cep = Form.useWatch('cep', form)
+    useEffect(() => {
+        if (id) {
+            api.get(`/user/${id}`).then(res => {
+                const { data } = res
+                form.setFieldValue('email', data.email)
+                form.setFieldValue('password', data.password)
+            })
+        }
+
+    }, [id])
     useEffect(() => {
         const getCep = async (cep: string) => {
             const response = await api.get(`cep/${cep}`)
@@ -48,9 +60,19 @@ export const Cadastro: React.FC = () => {
     const navigate = useNavigate();
 
     const onFinish = (values: any) => {
-        console.log('Received values of form: ', values);
-        openSuccessNotification('CADASTRO REALIZADO COM SUCESSO')
-        navigate('/login');
+        if (id) {
+            api.put(`/user/${id}`, values).then(res => {
+                openSuccessNotification('CADASTRO ATUALIZADO COM SUCESSO')
+                navigate('/usuarios')
+            })
+        } else {
+
+            api.post('/', values).then(res => {
+                openSuccessNotification('CADASTRO REALIZADO COM SUCESSO')
+                navigate('/usuarios')
+
+            })
+        }
     };
 
     return (
@@ -92,7 +114,11 @@ export const Cadastro: React.FC = () => {
             </Form.Item>
 
             <Button type="primary" htmlType="submit">
-                REGISTRAR
+                {id ? 'ATUALIZAR' : 'REGISTRAR'}
+            </Button>
+
+            <Button onClick={() => navigate('/usuarios')}>
+                VOLTAR
             </Button>
         </Form>
     );

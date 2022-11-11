@@ -15,6 +15,7 @@ const RoutesApp = () => {
             <Route path="/" element={<div />} />
             <Route path="/login" element={<Login />} />
             <Route path="/usuarios/cadastro" element={<Cadastro />} />
+            <Route path="/usuarios/cadastro/:id" element={<Cadastro />} />
             <Route path="/usuarios" element={<Usuarios />} />
             <Route path="/agenda" element={<Agenda />} />
             <Route path="/galeria" element={<Galeria />} />

@@ -43,7 +43,6 @@ const items = [
   getItem('Usuário', '4', <UserOutlined />, [
     getItem(<Link to='/login'>Login</Link>, '4.1', <LoginOutlined />),
     getItem(<Link to='/usuarios'>Usuários</Link>, '4.2', <UserAddOutlined />),
-    getItem(<Link to='/usuarios/cadastro'>Cadastro</Link>, '4.3', <UserAddOutlined />),
   ]),
 ];
 
