@@ -27,24 +27,17 @@ export const Usuarios = () => {
     }
     const deleteUsuario = (id: number) => {
         api.delete(`/user/${id}`).then(res => {
-            openSuccessNotification('USUÁRIO DELETADO COM SUCESSO')
+            openSuccessNotification('Usuário deletado com sucesso!')
             getUsuarios()
         })
     }
 
     return (
         <div>
-            <Button onClick={() => navigate('/usuarios/cadastro')}>
-                Cadastrar Usuário
-            </Button>
             <table>
                 <thead>
-                    <td>
-                        Email
-                    </td>
-                    <td>
-                        Ações
-                    </td>
+                    <td>Email</td>
+                    <td>Ações</td>
                 </thead>
                 <tbody>
                     {
@@ -69,6 +62,10 @@ export const Usuarios = () => {
                     }
                 </tbody>
             </table>
+            <br></br>
+            <Button type="primary" onClick={() => navigate('/usuarios/cadastro')}>
+                Cadastrar Usuário
+            </Button>
         </div>
     )
 }

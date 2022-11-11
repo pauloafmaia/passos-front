@@ -9,6 +9,7 @@ import type { DatePickerProps } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
 import { api } from '../../lib/api';
+import './Cadastro.css'
 
 const { Option } = Select;
 
@@ -18,7 +19,7 @@ const onChange: DatePickerProps['onChange'] = (date, dateString) => {
 
 const formItemLayout = {
     labelCol: {
-        xs: { span: 24 },
+        xs: { span: 1000 },
         sm: { span: 8 },
     },
     wrapperCol: {
@@ -62,13 +63,13 @@ export const Cadastro: React.FC = () => {
     const onFinish = (values: any) => {
         if (id) {
             api.put(`/user/${id}`, values).then(res => {
-                openSuccessNotification('CADASTRO ATUALIZADO COM SUCESSO')
+                openSuccessNotification('Cadastro atualizado com sucesso!')
                 navigate('/usuarios')
             })
         } else {
 
             api.post('/', values).then(res => {
-                openSuccessNotification('CADASTRO REALIZADO COM SUCESSO')
+                openSuccessNotification('Cadastro realizado com sucesso!')
                 navigate('/usuarios')
 
             })
@@ -76,50 +77,51 @@ export const Cadastro: React.FC = () => {
     };
 
     return (
-        <Form
-            {...formItemLayout}
-            form={form}
-            name="register"
-            onFinish={onFinish}
-            scrollToFirstError
-        >
-            <Form.Item
-                name="email"
-                label="E-mail"
-                rules={[
-                    {
-                        type: 'email',
-                        message: 'O e-mail inserido não é válido',
-                    },
-                    {
-                        required: true,
-                        message: 'Insira o e-mail',
-                    },
-                ]}
+        <div>
+            <Form
+                {...formItemLayout}
+                form={form}
+                name="register"
+                onFinish={onFinish}
+                scrollToFirstError
             >
-                <Input />
-            </Form.Item>
+                <Form.Item
+                    name="email"
+                    label="E-mail"
+                    rules={[
+                        {
+                            type: 'email',
+                            message: 'O e-mail inserido não é válido',
+                        },
+                        {
+                            required: true,
+                            message: 'Insira o e-mail',
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
 
-            <Form.Item
-                name="password"
-                label="Senha"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Insira a senha',
-                    }
-                ]}
-            >
-                <Input.Password />
-            </Form.Item>
+                <Form.Item
+                    name="password"
+                    label="Senha"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Insira a senha',
+                        }
+                    ]}
+                >
+                    <Input.Password />
+                </Form.Item>
 
-            <Button type="primary" htmlType="submit">
-                {id ? 'ATUALIZAR' : 'REGISTRAR'}
-            </Button>
-
-            <Button onClick={() => navigate('/usuarios')}>
-                VOLTAR
-            </Button>
-        </Form>
+                <Button type="primary" htmlType="submit">
+                    {id ? 'ATUALIZAR' : 'REGISTRAR'}
+                </Button>
+                <Button type="primary" onClick={() => navigate('/usuarios')}>
+                    VOLTAR
+                </Button>
+            </Form>
+        </div>
     );
 };

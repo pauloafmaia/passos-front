@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
 import RoutesApp from './routes/Routes';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import './App.css';
-import { Menu, Layout, Space } from 'antd';
+import { Menu, Layout } from 'antd';
 import { HomeOutlined, CalendarOutlined, PlayCircleOutlined, LoginOutlined, UserOutlined, UserAddOutlined, PictureOutlined, MailOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import type { MenuProps } from 'antd';
