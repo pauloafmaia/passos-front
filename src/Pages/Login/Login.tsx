@@ -1,11 +1,11 @@
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import React from 'react';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
 
 <style>
 
-    
+
 
 </style>
 
@@ -15,7 +15,6 @@ export const Login: React.FC = () => {
 
     const onFinish = (values: any) => {
         openSuccessNotification("Logado com sucesso")
-        console.log('Success:', values);
         navigate('/home')
     };
 
@@ -27,7 +26,7 @@ export const Login: React.FC = () => {
         <Form
             name="basic"
             labelCol={{ span: 8 }}
-            wrapperCol={{ span: 16 }}
+            wrapperCol={{ span: 10 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -47,10 +46,6 @@ export const Login: React.FC = () => {
                 rules={[{ required: true, message: 'Insira a senha' }]}
             >
                 <Input.Password />
-            </Form.Item>
-
-            <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-                <Checkbox>Mantenha-me conectado</Checkbox>
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>

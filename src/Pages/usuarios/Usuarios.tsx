@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react"
 import { api } from "../../lib/api"
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
-import { Button, Popconfirm } from "antd";
-import { useNavigate } from "react-router-dom";
+import { Button, Popconfirm, Modal } from "antd";
+import { useNavigate, useParams } from "react-router-dom";
 import { openSuccessNotification } from "../../services/notificationService";
 import './usuarios.css'
 
 interface UsuarioGet {
     id: number,
-    email: string
+    email: string,
+    name: string
 }
 
 export const Usuarios = () => {
@@ -36,12 +37,18 @@ export const Usuarios = () => {
         <div>
             <table>
                 <thead>
+                    <td>Nome</td>
                     <td>Email</td>
                     <td>Ações</td>
                 </thead>
                 <tbody>
                     {
                         usuarios.map(usuario => <tr>
+                            <td>
+                                {
+                                    usuario.name
+                                }
+                            </td>
                             <td>
                                 {
                                     usuario.email

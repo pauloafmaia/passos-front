@@ -1,27 +1,29 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 
+import { Home } from "../pages/home/Home";
 import { Login } from "../pages/login/Login";
 import { Cadastro } from "../pages/usuarios/Cadastro";
 import { Agenda } from "../pages/agenda/Agenda";
-import { Galeria } from "../pages/galeria/Galeria";
-import { Cifras } from "../pages/cifras/Cifras";
-import { Contato } from "../pages/contato/Contato";
+import { Repertorios } from "../pages/repertorios/Repertorios";
 import { Usuarios } from "../pages/usuarios/Usuarios";
+import { LayoutComponent as Layout } from "../Layout";
 
 const RoutesApp = () => {
     return (
-        <Routes>
-            <Route path="/" element={<div />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/usuarios/cadastro" element={<Cadastro />} />
-            <Route path="/usuarios/cadastro/:id" element={<Cadastro />} />
-            <Route path="/usuarios" element={<Usuarios />} />
-            <Route path="/agenda" element={<Agenda />} />
-            <Route path="/galeria" element={<Galeria />} />
-            <Route path="/cifras" element={<Cifras />} />
-            <Route path="/contato" element={<Contato />} />
-        </Routes>
+        <Router>
+            <Routes>
+                <Route element={<Layout />} >
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/usuarios/cadastro" element={<Cadastro />} />
+                    <Route path="/usuarios/cadastro/:id" element={<Cadastro />} />
+                    <Route path="/usuarios" element={<Usuarios />} />
+                    <Route path="/agenda" element={<Agenda />} />
+                    <Route path="/repertorios" element={<Repertorios />} />
+                </Route>
+                <Route path="/" element={<Login />} />
+            </Routes>
+        </Router>
     )
 }
 

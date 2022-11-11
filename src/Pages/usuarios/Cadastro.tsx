@@ -4,18 +4,10 @@ import {
     Input,
     Select,
 } from 'antd';
-import React, { useEffect, useState } from 'react';
-import type { DatePickerProps } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
 import { api } from '../../lib/api';
 import './Cadastro.css'
-
-const { Option } = Select;
-
-const onChange: DatePickerProps['onChange'] = (date, dateString) => {
-    console.log(date, dateString);
-};
 
 const formItemLayout = {
     labelCol: {
@@ -34,30 +26,6 @@ export const Cadastro: React.FC = () => {
 
     const [form] = Form.useForm();
 
-    const cep = Form.useWatch('cep', form)
-    useEffect(() => {
-        if (id) {
-            api.get(`/user/${id}`).then(res => {
-                const { data } = res
-                form.setFieldValue('email', data.email)
-                form.setFieldValue('password', data.password)
-            })
-        }
-
-    }, [id])
-    useEffect(() => {
-        const getCep = async (cep: string) => {
-            const response = await api.get(`cep/${cep}`)
-            const { logradouro, localidade, uf } = response.data
-            form.setFieldValue('residence', `${logradouro}`)
-            form.setFieldValue('localidade', `${localidade}`)
-            form.setFieldValue('uf', `${uf}`)
-        }
-        if (cep && cep.length == 8) {
-            getCep(cep)
-        }
-    }, [cep])
-
     const navigate = useNavigate();
 
     const onFinish = (values: any) => {
@@ -68,7 +36,7 @@ export const Cadastro: React.FC = () => {
             })
         } else {
 
-            api.post('/', values).then(res => {
+            api.post('/user', values).then(res => {
                 openSuccessNotification('Cadastro realizado com sucesso!')
                 navigate('/usuarios')
 
@@ -86,6 +54,22 @@ export const Cadastro: React.FC = () => {
                 scrollToFirstError
             >
                 <Form.Item
+                    name="name"
+                    label="Nome"
+                    rules={[
+                        {
+                            type: 'string',
+                        },
+                        {
+                            required: true,
+                            message: 'Insira o seu nome',
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
                     name="email"
                     label="E-mail"
                     rules={[
@@ -95,7 +79,7 @@ export const Cadastro: React.FC = () => {
                         },
                         {
                             required: true,
-                            message: 'Insira o e-mail',
+                            message: 'Insira o seu e-mail',
                         },
                     ]}
                 >
@@ -108,7 +92,7 @@ export const Cadastro: React.FC = () => {
                     rules={[
                         {
                             required: true,
-                            message: 'Insira a senha',
+                            message: 'Insira a sua senha',
                         }
                     ]}
                 >
