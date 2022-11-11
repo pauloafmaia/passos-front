@@ -8,8 +8,8 @@ import './usuarios.css'
 
 interface UsuarioGet {
     id: number,
-    email: string,
-    name: string
+    name: string,
+    email: string
 }
 
 export const Usuarios = () => {
