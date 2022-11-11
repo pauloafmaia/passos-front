@@ -2,7 +2,6 @@ import {
     Button,
     Form,
     Input,
-    Select,
 } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';

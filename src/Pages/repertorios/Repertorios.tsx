@@ -72,7 +72,10 @@ export const Repertorios = () => {
                             </td>
                             <td>
                                 <FileOutlined onClick={showModal} />
-                                <Modal title='Repertório' open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                                <Modal title='Repertório' open={isModalOpen} onOk={handleOk} onCancel={handleCancel}
+                                    footer={[
+                                        <Button key="back" onClick={handleCancel}>Voltar</Button>
+                                    ]}>
                                     {
                                         setList.setList
                                     }
