@@ -58,8 +58,7 @@ export const LayoutComponent = () => {
                 <Sider>
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
                 </Sider>
-                <Layout
-                    style={{ padding: '0 24px 24px', }}>
+                <Layout style={{ padding: '30px 30px', }}>
                     <Content
                         className="site-layout-background"
                         style={{
