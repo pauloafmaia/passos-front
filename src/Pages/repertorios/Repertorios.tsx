@@ -9,6 +9,7 @@ import './Repertorios.css'
 interface SetListGet {
     id: number,
     local: string,
+    event: string,
     date: string,
     setList: string,
 }
@@ -53,6 +54,7 @@ export const Repertorios = () => {
             <table>
                 <thead>
                     <td>Local</td>
+                    <td>Evento</td>
                     <td>Data</td>
                     <td>Repertório</td>
                     <td>Ações</td>
@@ -67,11 +69,18 @@ export const Repertorios = () => {
                             </td>
                             <td>
                                 {
+                                    setList.event
+                                }
+                            </td>
+                            <td>
+                                {
                                     setList.date
                                 }
                             </td>
                             <td>
-                                <FileOutlined onClick={showModal} />
+                                <Button type="primary" icon={<FileOutlined />} onClick={showModal}>
+                                    Repertório
+                                </Button>
                                 <Modal title='Repertório' open={isModalOpen} onOk={handleOk} onCancel={handleCancel}
                                     footer={[
                                         <Button key="back" onClick={handleCancel}>Voltar</Button>
@@ -82,14 +91,18 @@ export const Repertorios = () => {
                                 </Modal>
                             </td>
                             <td>
-                                <EditOutlined onClick={() => editSetList(setList.id)} />
+                                <Button type="primary" icon={<EditOutlined />} onClick={() => editSetList(setList.id)}>
+                                    Editar
+                                </Button>
                                 <Popconfirm
                                     title="Tem certeza que quer deletar o repertório?"
                                     onConfirm={() => deleteSetList(setList.id)}
                                     okText="Sim"
                                     cancelText="Não"
                                 >
-                                    <DeleteOutlined />
+                                    <Button type="primary" icon={<DeleteOutlined />}>
+                                        Deletar
+                                    </Button>
                                 </Popconfirm>
                             </td>
                         </tr>)

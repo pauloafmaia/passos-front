@@ -71,6 +71,22 @@ export const CriarRepertorio: React.FC = () => {
                 </Form.Item>
 
                 <Form.Item
+                    name="event"
+                    label="Evento"
+                    rules={[
+                        {
+                            type: 'string',
+                        },
+                        {
+                            required: true,
+                            message: 'Insira o evento',
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
                     name="date"
                     label="Data"
                     rules={[

@@ -54,15 +54,19 @@ export const Usuarios = () => {
                                     usuario.email
                                 }
                             </td>
-                            <td>
-                                <EditOutlined onClick={() => editUsuario(usuario.id)} />
+                            <td id="td1">
+                                <Button type="primary" icon={<EditOutlined />} onClick={() => editUsuario(usuario.id)}>
+                                    Editar
+                                </Button>
                                 <Popconfirm
                                     title="Tem certeza que quer deletar o usuário?"
                                     onConfirm={() => deleteUsuario(usuario.id)}
                                     okText="Sim"
                                     cancelText="Não"
                                 >
-                                    <DeleteOutlined />
+                                    <Button type="primary" icon={<DeleteOutlined />}>
+                                        Deletar
+                                    </Button>
                                 </Popconfirm>
                             </td>
                         </tr>)

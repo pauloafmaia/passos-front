@@ -1,7 +1,7 @@
 import RoutesApp from './routes/Routes';
 import { BrowserRouter as Router, Link, Navigate, Outlet, useNavigate } from 'react-router-dom';
 import './App.css';
-import { Menu, Layout } from 'antd';
+import { Menu, Layout, Breadcrumb } from 'antd';
 import { HomeOutlined, CalendarOutlined, PlayCircleOutlined, LoginOutlined, UserOutlined, UserAddOutlined, PictureOutlined, MailOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import type { MenuProps } from 'antd';
@@ -56,8 +56,6 @@ export const LayoutComponent = () => {
             <Header className="site-layout-background" style={{ padding: 0 }} />
             <Layout>
                 <Sider>
-                    <div className="logo">
-                    </div>
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
                 </Sider>
                 <Layout
