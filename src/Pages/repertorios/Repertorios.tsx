@@ -78,7 +78,7 @@ export const Repertorios = () => {
                                 }
                             </td>
                             <td>
-                                <Button type="primary" icon={<FileOutlined />} onClick={showModal}>
+                                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<FileOutlined />} onClick={showModal}>
                                     Repertório
                                 </Button>
                                 <Modal title='Repertório' open={isModalOpen} onOk={handleOk} onCancel={handleCancel}
@@ -91,7 +91,7 @@ export const Repertorios = () => {
                                 </Modal>
                             </td>
                             <td>
-                                <Button type="primary" icon={<EditOutlined />} onClick={() => editSetList(setList.id)}>
+                                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<EditOutlined />} onClick={() => editSetList(setList.id)}>
                                     Editar
                                 </Button>
                                 <Popconfirm
@@ -100,7 +100,7 @@ export const Repertorios = () => {
                                     okText="Sim"
                                     cancelText="Não"
                                 >
-                                    <Button type="primary" icon={<DeleteOutlined />}>
+                                    <Button style={{ backgroundColor: '#084d6e', color: 'white',  }} icon={<DeleteOutlined />}>
                                         Deletar
                                     </Button>
                                 </Popconfirm>
@@ -110,7 +110,7 @@ export const Repertorios = () => {
                 </tbody>
             </table>
             <br></br>
-            <Button type="primary" onClick={() => navigate('/repertorios/criarrepertorio')}>
+            <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/repertorios/criarrepertorio')}>
                 Criar Repertório
             </Button>
         </div>

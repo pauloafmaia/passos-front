@@ -1,7 +1,7 @@
 td {
     padding: 16px 16px;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 20px solid gray;
+    border-bottom: 20px solid gray;
 }
 
 thead {
@@ -11,13 +11,13 @@ thead {
 }
 
 tbody {
-    border: 1px solid black;
+    border: 20px solid gray;
 }
 
 table {
     border-collapse: collapse;
     width: 100%;
     text-align: left;
-    border: 1px solid black;
+    border: 1px solid gray;
     background-color: white;
 }

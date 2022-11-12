@@ -55,7 +55,7 @@ export const Usuarios = () => {
                                 }
                             </td>
                             <td id="td1">
-                                <Button type="primary" icon={<EditOutlined />} onClick={() => editUsuario(usuario.id)}>
+                                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<EditOutlined />} onClick={() => editUsuario(usuario.id)}>
                                     Editar
                                 </Button>
                                 <Popconfirm
@@ -64,7 +64,7 @@ export const Usuarios = () => {
                                     okText="Sim"
                                     cancelText="Não"
                                 >
-                                    <Button type="primary" icon={<DeleteOutlined />}>
+                                    <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<DeleteOutlined />}>
                                         Deletar
                                     </Button>
                                 </Popconfirm>
@@ -74,9 +74,9 @@ export const Usuarios = () => {
                 </tbody>
             </table>
             <br></br>
-            <Button type="primary" onClick={() => navigate('/usuarios/cadastro')}>
+            <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/usuarios/cadastro')}>
                 Cadastrar Usuário
             </Button>
-        </div>
+        </div >
     )
 }

@@ -56,7 +56,7 @@ export const LayoutComponent = () => {
             <Header className="site-layout-background" style={{ padding: 0 }} />
             <Layout>
                 <Sider>
-                    <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+                    <Menu theme="dark" defaultSelectedKeys={[]} mode="inline" items={items} />
                 </Sider>
                 <Layout style={{ padding: '30px 30px', }}>
                     <Content
@@ -64,16 +64,16 @@ export const LayoutComponent = () => {
                         style={{
                             padding: 24,
                             margin: 0,
-                            minHeight: 360,
+                            minHeight: 467,
                         }}
                     >
                         <div>
                             <Outlet />
                         </div>
                     </Content>
+                    <Footer style={{ textAlign: 'center', padding: '2px' }}>Created by MINISTÉRIO PASSOS ® 2022</Footer>
                 </Layout>
             </Layout>
-            <Footer style={{ textAlign: 'center', backgroundColor: 'gray', padding: '2px' }}>Created by MINISTÉRIO PASSOS ® 2022</Footer>
         </Layout>
     )
 }
