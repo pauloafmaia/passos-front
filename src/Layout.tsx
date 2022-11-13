@@ -1,7 +1,7 @@
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import './Layout.css';
 import { Menu, Layout } from 'antd';
-import { HomeOutlined, CalendarOutlined, PlayCircleOutlined, SoundOutlined, UserOutlined } from '@ant-design/icons';
+import { VideoCameraOutlined, HomeOutlined, CalendarOutlined, PlayCircleOutlined, SoundOutlined, UserOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import type { MenuProps } from 'antd';
 import { Footer } from 'antd/lib/layout/layout';
@@ -57,7 +57,7 @@ export const LayoutComponent = () => {
                 <h3 style={{ color: 'white', textAlign: 'center' }}>MINISTÉRIO PASSOS</h3>
             </Header>
             <Layout>
-                <Sider width={200} className="site-layout-background">
+                <Sider style={{ height: 1080 }} width={200} className="site-layout-background">
                     <Menu
                         theme="dark"
                         defaultSelectedKeys={[]}
