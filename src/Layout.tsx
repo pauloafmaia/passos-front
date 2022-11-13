@@ -2,7 +2,7 @@ import RoutesApp from './routes/Routes';
 import { BrowserRouter as Router, Link, Navigate, Outlet, useNavigate } from 'react-router-dom';
 import './App.css';
 import { Menu, Layout, Breadcrumb } from 'antd';
-import { HomeOutlined, CalendarOutlined, PlayCircleOutlined, LoginOutlined, UserOutlined, UserAddOutlined, PictureOutlined, MailOutlined } from '@ant-design/icons';
+import { HomeOutlined, CalendarOutlined, PlayCircleOutlined, SoundOutlined, UserOutlined, UserAddOutlined, PictureOutlined, MailOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import type { MenuProps } from 'antd';
 import { Footer } from 'antd/lib/layout/layout';
@@ -34,8 +34,9 @@ function getItem(
 const items = [
     getItem(<Link to='/home'>Home</Link>, '1', <HomeOutlined />),
     getItem(<Link to='/agenda'>Agenda</Link>, '2', <CalendarOutlined />),
-    getItem(<Link to='/repertorios'>Repertórios</Link>, '3', <PlayCircleOutlined />),
-    getItem(<Link to='/usuarios'>Usuários</Link>, '4', <UserOutlined />),
+    getItem(<Link to='/musicas'>Músicas</Link>, '3', <SoundOutlined />),
+    getItem(<Link to='/repertorios'>Repertórios</Link>, '4', <PlayCircleOutlined />),
+    getItem(<Link to='/usuarios'>Usuários</Link>, '5', <UserOutlined />),
 ];
 
 export const LayoutComponent = () => {
@@ -64,7 +65,7 @@ export const LayoutComponent = () => {
                         style={{
                             padding: 24,
                             margin: 0,
-                            minHeight: 467,
+                            minHeight: 360,
                         }}
                     >
                         <div>
