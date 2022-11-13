@@ -1,6 +1,4 @@
-import React from "react";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-
 import { Home } from "../pages/home/Home";
 import { Login } from "../pages/login/Login";
 import { Cadastro } from "../pages/usuarios/Cadastro";

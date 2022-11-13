@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { api } from "../../lib/api"
 import { EditOutlined, DeleteOutlined, FileOutlined } from '@ant-design/icons';
 import { Button, Modal, Popconfirm } from "antd";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { openSuccessNotification } from "../../services/notificationService";
 import './Repertorios.css'
 
@@ -100,7 +100,7 @@ export const Repertorios = () => {
                                     okText="Sim"
                                     cancelText="Não"
                                 >
-                                    <Button style={{ backgroundColor: '#084d6e', color: 'white',  }} icon={<DeleteOutlined />}>
+                                    <Button style={{ backgroundColor: '#084d6e', color: 'white', }} icon={<DeleteOutlined />}>
                                         Deletar
                                     </Button>
                                 </Popconfirm>
@@ -111,7 +111,7 @@ export const Repertorios = () => {
             </table>
             <br></br>
             <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/repertorios/criarrepertorio')}>
-                Criar Repertório
+                Cadastrar Repertório
             </Button>
         </div>
     )

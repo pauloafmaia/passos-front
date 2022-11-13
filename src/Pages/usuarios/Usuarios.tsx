@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { api } from "../../lib/api"
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
-import { Button, Popconfirm, Modal } from "antd";
-import { useNavigate, useParams } from "react-router-dom";
+import { Button, Popconfirm } from "antd";
+import { useNavigate } from "react-router-dom";
 import { openSuccessNotification } from "../../services/notificationService";
 import './usuarios.css'
 
@@ -54,7 +54,7 @@ export const Usuarios = () => {
                                     usuario.email
                                 }
                             </td>
-                            <td id="td1">
+                            <td>
                                 <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<EditOutlined />} onClick={() => editUsuario(usuario.id)}>
                                     Editar
                                 </Button>
