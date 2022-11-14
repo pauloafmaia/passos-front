@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { api } from "../../lib/api"
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Popconfirm } from "antd";
 import { useNavigate } from "react-router-dom";
 import { openSuccessNotification } from "../../services/notificationService";
@@ -74,7 +74,7 @@ export const Usuarios = () => {
                 </tbody>
             </table>
             <br></br>
-            <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/usuarios/cadastro')}>
+            <Button icon={<PlusOutlined />} style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/usuarios/cadastro')}>
                 Cadastrar Usuário
             </Button>
         </div >

@@ -6,7 +6,6 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
 import { api } from '../../lib/api';
-import './Cadastro.css'
 
 const formItemLayout = {
     labelCol: {

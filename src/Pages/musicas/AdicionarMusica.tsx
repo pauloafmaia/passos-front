@@ -1,9 +1,4 @@
-import {
-    Button,
-    Form,
-    Input,
-    Select,
-} from 'antd';
+import { Button, Form, Input } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
 import { api } from '../../lib/api';
@@ -19,13 +14,7 @@ const formItemLayout = {
     },
 };
 
-const { Option } = Select;
-
 export const AdicionarMusica: React.FC = () => {
-
-    const onReset = () => {
-        form.resetFields();
-    };
 
     const { id } = useParams()
 
