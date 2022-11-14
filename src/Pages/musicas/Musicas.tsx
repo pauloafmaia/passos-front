@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { api } from "../../lib/api"
 import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button, Popconfirm } from "antd";
+import { Button, Popconfirm, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import { openSuccessNotification } from "../../services/notificationService";
 import './Musicas.css'
@@ -69,19 +69,21 @@ export const Musicas = () => {
                                 }
                             </td>
                             <td>
-                                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<EditOutlined />} onClick={() => editMusicas(musicas.id)}>
-                                    Editar
-                                </Button>
-                                <Popconfirm
-                                    title="Tem certeza que quer deletar a música?"
-                                    onConfirm={() => deleteMusicas(musicas.id)}
-                                    okText="Sim"
-                                    cancelText="Não"
-                                >
-                                    <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<DeleteOutlined />}>
-                                        Deletar
+                                <Space>
+                                    <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<EditOutlined />} onClick={() => editMusicas(musicas.id)}>
+                                        Editar
                                     </Button>
-                                </Popconfirm>
+                                    <Popconfirm
+                                        title="Tem certeza que quer deletar a música?"
+                                        onConfirm={() => deleteMusicas(musicas.id)}
+                                        okText="Sim"
+                                        cancelText="Não"
+                                    >
+                                        <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<DeleteOutlined />}>
+                                            Deletar
+                                        </Button>
+                                    </Popconfirm>
+                                </Space>
                             </td>
                         </tr>)
                     }

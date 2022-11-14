@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { api } from "../../lib/api"
 import { EditOutlined, DeleteOutlined, FileOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button, Modal, Popconfirm } from "antd";
+import { Button, Modal, Popconfirm, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import { openSuccessNotification } from "../../services/notificationService";
 import './Eventos.css'
@@ -81,29 +81,33 @@ export const Eventos = () => {
                                 <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<FileOutlined />} onClick={showModal}>
                                     Repertório
                                 </Button>
-                                <Modal title='Repertório' open={isModalOpen} onOk={handleOk} onCancel={handleCancel}
-                                    footer={[
-                                        <Button key="back" onClick={handleCancel}>Voltar</Button>
-                                    ]}>
-                                    {
-                                        event.setList
-                                    }
-                                </Modal>
+                                <Space>
+                                    <Modal title='Repertório' open={isModalOpen} onOk={handleOk} onCancel={handleCancel}
+                                        footer={[
+                                            <Button key="back" onClick={handleCancel}>Voltar</Button>
+                                        ]}>
+                                        {
+                                            event.setList
+                                        }
+                                    </Modal>
+                                </Space>
                             </td>
                             <td>
-                                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<EditOutlined />} onClick={() => editEvent(event.id)}>
-                                    Editar
-                                </Button>
-                                <Popconfirm
-                                    title="Tem certeza que quer deletar o evento?"
-                                    onConfirm={() => deleteEvent(event.id)}
-                                    okText="Sim"
-                                    cancelText="Não"
-                                >
-                                    <Button style={{ backgroundColor: '#084d6e', color: 'white', }} icon={<DeleteOutlined />}>
-                                        Deletar
+                                <Space>
+                                    <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<EditOutlined />} onClick={() => editEvent(event.id)}>
+                                        Editar
                                     </Button>
-                                </Popconfirm>
+                                    <Popconfirm
+                                        title="Tem certeza que quer deletar o evento?"
+                                        onConfirm={() => deleteEvent(event.id)}
+                                        okText="Sim"
+                                        cancelText="Não"
+                                    >
+                                        <Button style={{ backgroundColor: '#084d6e', color: 'white', }} icon={<DeleteOutlined />}>
+                                            Deletar
+                                        </Button>
+                                    </Popconfirm>
+                                </Space>
                             </td>
                         </tr>)
                     }
