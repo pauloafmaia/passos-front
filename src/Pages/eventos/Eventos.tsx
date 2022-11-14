@@ -4,17 +4,17 @@ import { EditOutlined, DeleteOutlined, FileOutlined } from '@ant-design/icons';
 import { Button, Modal, Popconfirm } from "antd";
 import { useNavigate } from "react-router-dom";
 import { openSuccessNotification } from "../../services/notificationService";
-import './Repertorios.css'
+import './Eventos.css'
 
-interface SetListGet {
+interface EventGet {
     id: number,
+    eventName: string,
     local: string,
-    event: string,
     date: string,
     setList: string,
 }
 
-export const Repertorios = () => {
+export const Eventos = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -32,20 +32,20 @@ export const Repertorios = () => {
 
     const navigate = useNavigate();
 
-    const [setList, setSetList] = useState<SetListGet[]>([])
-    const getSetList = () => api.get("/setlist").then(res => {
-        setSetList(res.data);
+    const [event, setEvent] = useState<EventGet[]>([])
+    const getEvent = () => api.get("/event").then(res => {
+        setEvent(res.data);
     });
     useEffect(() => {
-        getSetList()
+        getEvent()
     }, [])
-    const editSetList = (id: number) => {
-        navigate(`/repertorios/criarrepertorio/${id}`)
+    const editEvent = (id: number) => {
+        navigate(`/eventos/adicionarevento/${id}`)
     }
-    const deleteSetList = (id: number) => {
-        api.delete(`/setlist/${id}`).then(res => {
-            openSuccessNotification('Repertório deletado com sucesso!')
-            getSetList()
+    const deleteEvent = (id: number) => {
+        api.delete(`/event/${id}`).then(res => {
+            openSuccessNotification('Evento deletado com sucesso!')
+            getEvent()
         })
     }
 
@@ -53,28 +53,28 @@ export const Repertorios = () => {
         <div>
             <table>
                 <thead>
-                    <td>Local</td>
                     <td>Evento</td>
+                    <td>Local</td>
                     <td>Data</td>
                     <td>Repertório</td>
                     <td>Ações</td>
                 </thead>
                 <tbody>
                     {
-                        setList.map(setList => <tr>
+                        event.map(event => <tr>
                             <td>
                                 {
-                                    setList.local
+                                    event.eventName
                                 }
                             </td>
                             <td>
                                 {
-                                    setList.event
+                                    event.local
                                 }
                             </td>
                             <td>
                                 {
-                                    setList.date
+                                    event.date
                                 }
                             </td>
                             <td>
@@ -86,17 +86,17 @@ export const Repertorios = () => {
                                         <Button key="back" onClick={handleCancel}>Voltar</Button>
                                     ]}>
                                     {
-                                        setList.setList
+                                        event.setList
                                     }
                                 </Modal>
                             </td>
                             <td>
-                                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<EditOutlined />} onClick={() => editSetList(setList.id)}>
+                                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<EditOutlined />} onClick={() => editEvent(event.id)}>
                                     Editar
                                 </Button>
                                 <Popconfirm
-                                    title="Tem certeza que quer deletar o repertório?"
-                                    onConfirm={() => deleteSetList(setList.id)}
+                                    title="Tem certeza que quer deletar o evento?"
+                                    onConfirm={() => deleteEvent(event.id)}
                                     okText="Sim"
                                     cancelText="Não"
                                 >
@@ -110,8 +110,8 @@ export const Repertorios = () => {
                 </tbody>
             </table>
             <br></br>
-            <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/repertorios/criarrepertorio')}>
-                Cadastrar Repertório
+            <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/eventos/adicionarevento')}>
+                Adicionar Evento
             </Button>
         </div>
     )

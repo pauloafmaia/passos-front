@@ -6,7 +6,6 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
 import { api } from '../../lib/api';
-import './CriarRepertorio.css'
 
 const formItemLayout = {
     labelCol: {
@@ -21,7 +20,7 @@ const formItemLayout = {
 
 const { TextArea } = Input;
 
-export const CriarRepertorio: React.FC = () => {
+export const AdicionarEvento: React.FC = () => {
 
     const { id } = useParams()
 
@@ -31,15 +30,14 @@ export const CriarRepertorio: React.FC = () => {
 
     const onFinish = (values: any) => {
         if (id) {
-            api.put(`/setlist/${id}`, values).then(res => {
-                openSuccessNotification('Repertório atualizado com sucesso!')
-                navigate('/repertorios')
+            api.put(`/event/${id}`, values).then(res => {
+                openSuccessNotification('Evento atualizado com sucesso!')
+                navigate('/eventos')
             })
         } else {
-
-            api.post('/setlist', values).then(res => {
-                openSuccessNotification('Repertório criado com sucesso!')
-                navigate('/repertorios')
+            api.post('/event', values).then(res => {
+                openSuccessNotification('Evento criado com sucesso!')
+                navigate('/eventos')
 
             })
         }
@@ -55,6 +53,22 @@ export const CriarRepertorio: React.FC = () => {
                 scrollToFirstError
             >
                 <Form.Item
+                    name="eventName"
+                    label="Evento"
+                    rules={[
+                        {
+                            type: 'string',
+                        },
+                        {
+                            required: true,
+                            message: 'Insira o evento',
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
                     name="local"
                     label="Local"
                     rules={[
@@ -64,22 +78,6 @@ export const CriarRepertorio: React.FC = () => {
                         {
                             required: true,
                             message: 'Insira o local',
-                        },
-                    ]}
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="event"
-                    label="Evento"
-                    rules={[
-                        {
-                            type: 'string',
-                        },
-                        {
-                            required: true,
-                            message: 'Insira o evento',
                         },
                     ]}
                 >
@@ -120,9 +118,9 @@ export const CriarRepertorio: React.FC = () => {
                 </Form.Item>
 
                 <Button style={{ backgroundColor: '#084d6e', color: 'white' }}>
-                    {id ? 'ATUALIZAR' : 'CRIAR'}
+                    {id ? 'ATUALIZAR' : 'ADICIONAR'}
                 </Button>
-                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/repertorios')}>
+                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/eventos')}>
                     VOLTAR
                 </Button>
             </Form>

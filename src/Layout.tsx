@@ -33,7 +33,7 @@ function getItem(
 const items = [
     getItem(<Link to='/home'>Home</Link>, '1', <HomeOutlined />),
     getItem(<Link to='/musicas'>Músicas</Link>, '2', <SoundOutlined />),
-    getItem(<Link to='/repertorios'>Repertórios</Link>, '3', <PlayCircleOutlined />),
+    getItem(<Link to='/eventos'>Eventos</Link>, '3', <PlayCircleOutlined />),
     getItem(<Link to='/usuarios'>Usuários</Link>, '4', <UserOutlined />),
 ];
 
