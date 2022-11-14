@@ -1,7 +1,7 @@
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import './Layout.css';
 import { Menu, Layout } from 'antd';
-import { VideoCameraOutlined, HomeOutlined, CalendarOutlined, PlayCircleOutlined, SoundOutlined, UserOutlined } from '@ant-design/icons';
+import { HomeOutlined, PlayCircleOutlined, SoundOutlined, UserOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import type { MenuProps } from 'antd';
 import { Footer } from 'antd/lib/layout/layout';
@@ -32,10 +32,9 @@ function getItem(
 
 const items = [
     getItem(<Link to='/home'>Home</Link>, '1', <HomeOutlined />),
-    getItem(<Link to='/agenda'>Agenda</Link>, '2', <CalendarOutlined />),
-    getItem(<Link to='/musicas'>Músicas</Link>, '3', <SoundOutlined />),
-    getItem(<Link to='/repertorios'>Repertórios</Link>, '4', <PlayCircleOutlined />),
-    getItem(<Link to='/usuarios'>Usuários</Link>, '5', <UserOutlined />),
+    getItem(<Link to='/musicas'>Músicas</Link>, '2', <SoundOutlined />),
+    getItem(<Link to='/repertorios'>Repertórios</Link>, '3', <PlayCircleOutlined />),
+    getItem(<Link to='/usuarios'>Usuários</Link>, '4', <UserOutlined />),
 ];
 
 export const LayoutComponent = () => {
