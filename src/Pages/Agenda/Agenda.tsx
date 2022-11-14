@@ -90,7 +90,7 @@ export const Agenda: React.FC = () => {
                 </tbody>
             </table>
             <br></br>
-            <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/musicas/adicionarmusica')}>
+            <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/agenda/adicionaragenda')}>
                 Adicionar Agenda
             </Button>
         </div >

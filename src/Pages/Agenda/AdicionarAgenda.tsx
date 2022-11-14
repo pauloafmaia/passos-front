@@ -19,8 +19,6 @@ const formItemLayout = {
     },
 };
 
-const { Option } = Select;
-
 export const AdicionarAgenda: React.FC = () => {
 
     const onReset = () => {
