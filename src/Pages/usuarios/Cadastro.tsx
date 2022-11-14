@@ -98,7 +98,7 @@ export const Cadastro: React.FC = () => {
                     <Input.Password />
                 </Form.Item>
 
-                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} >
+                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} htmlType='submit'>
                     {id ? 'ATUALIZAR' : 'REGISTRAR'}
                 </Button>
                 <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/usuarios')}>
