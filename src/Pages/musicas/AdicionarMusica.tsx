@@ -122,10 +122,10 @@ export const AdicionarMusica: React.FC = () => {
                     <Input />
                 </Form.Item>
 
-                <Button type="primary" htmlType="submit">
+                <Button style={{ backgroundColor: '#084d6e', color: 'white' }}>
                     {id ? 'ATUALIZAR' : 'ADICIONAR'}
                 </Button>
-                <Button type="primary" onClick={() => navigate('/musicas')}>
+                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/musicas')}>
                     VOLTAR
                 </Button>
             </Form>

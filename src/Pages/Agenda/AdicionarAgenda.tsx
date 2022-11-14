@@ -2,11 +2,11 @@ import {
     Button,
     Form,
     Input,
+    Select,
 } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
 import { api } from '../../lib/api';
-import './CriarRepertorio'
 
 const formItemLayout = {
     labelCol: {
@@ -19,9 +19,13 @@ const formItemLayout = {
     },
 };
 
-const { TextArea } = Input;
+const { Option } = Select;
 
-export const CriarRepertorio: React.FC = () => {
+export const AdicionarAgenda: React.FC = () => {
+
+    const onReset = () => {
+        form.resetFields();
+    };
 
     const { id } = useParams()
 
@@ -31,15 +35,15 @@ export const CriarRepertorio: React.FC = () => {
 
     const onFinish = (values: any) => {
         if (id) {
-            api.put(`/setlist/${id}`, values).then(res => {
-                openSuccessNotification('Repertório atualizado com sucesso!')
-                navigate('/repertorios')
+            api.put(`/schedule/${id}`, values).then(res => {
+                openSuccessNotification('Agenda atualizada com sucesso!')
+                navigate('/agenda')
             })
         } else {
 
-            api.post('/setlist', values).then(res => {
-                openSuccessNotification('Repertório criado com sucesso!')
-                navigate('/repertorios')
+            api.post('/schedule', values).then(res => {
+                openSuccessNotification('Agenda criada com sucesso!')
+                navigate('/agenda')
 
             })
         }
@@ -55,22 +59,6 @@ export const CriarRepertorio: React.FC = () => {
                 scrollToFirstError
             >
                 <Form.Item
-                    name="local"
-                    label="Local"
-                    rules={[
-                        {
-                            type: 'string',
-                        },
-                        {
-                            required: true,
-                            message: 'Insira o local',
-                        },
-                    ]}
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
                     name="event"
                     label="Evento"
                     rules={[
@@ -80,6 +68,22 @@ export const CriarRepertorio: React.FC = () => {
                         {
                             required: true,
                             message: 'Insira o evento',
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
+                    name="local"
+                    label="Local"
+                    rules={[
+                        {
+                            type: 'string',
+                        },
+                        {
+                            required: true,
+                            message: 'Insira o local',
                         },
                     ]}
                 >
@@ -103,26 +107,25 @@ export const CriarRepertorio: React.FC = () => {
                 </Form.Item>
 
                 <Form.Item
-                    name="setList"
-                    label="Repertório"
+                    name="time"
+                    label="Horário"
                     rules={[
                         {
                             type: 'string',
                         },
                         {
                             required: true,
-                            message: 'Insira o repertório',
-                        }
+                            message: 'Insira o horário',
+                        },
                     ]}
                 >
-                    <TextArea rows={6}>
-                    </TextArea>
+                    <Input />
                 </Form.Item>
 
                 <Button style={{ backgroundColor: '#084d6e', color: 'white' }}>
-                    {id ? 'ATUALIZAR' : 'CRIAR'}
+                    {id ? 'ATUALIZAR' : 'ADICIONAR'}
                 </Button>
-                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/repertorios')}>
+                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/agenda')}>
                     VOLTAR
                 </Button>
             </Form>
