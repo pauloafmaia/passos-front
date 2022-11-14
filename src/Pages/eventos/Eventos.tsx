@@ -111,7 +111,7 @@ export const Eventos = () => {
             </table>
             <br></br>
             <Button icon={<PlusOutlined />} style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/eventos/adicionarevento')}>
-                Adicionar Evento
+                Cadastrar Evento
             </Button>
         </div>
     )
