@@ -2,12 +2,7 @@ import { Button, Form, Input } from 'antd';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
-
-<style>
-
-
-
-</style>
+import './Login.css'
 
 export const Login: React.FC = () => {
 
@@ -49,7 +44,7 @@ export const Login: React.FC = () => {
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                <Button type="primary" htmlType="submit">
+                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} htmlType="submit">
                     ENTRAR
                 </Button>
             </Form.Item>

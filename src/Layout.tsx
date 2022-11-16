@@ -1,12 +1,12 @@
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import './Layout.css';
-import { Menu, Layout } from 'antd';
+import { Menu, Layout, Breadcrumb } from 'antd';
 import { HomeOutlined, PlayCircleOutlined, SoundOutlined, UserOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import type { MenuProps } from 'antd';
 import { Footer } from 'antd/lib/layout/layout';
 import { UserContext } from './contexts/UserContext';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -49,14 +49,17 @@ export const LayoutComponent = () => {
         }
     }, [])
 
+    const [collapsed, setCollapsed] = useState(false);
+
     return (
 
-        <Layout>
-            <Header className="header" style={{ padding: 0 }}>
+        <Layout style={{ minHeight: '100vh' }}>
+            <Header className="site-layout-background" style={{ padding: 0 }}>
                 <h3 style={{ color: 'white', textAlign: 'center' }}>MINISTÉRIO PASSOS</h3>
             </Header>
-            <Layout>
-                <Sider style={{ height: 1080 }} width={200} className="site-layout-background">
+            <Layout className='site-layout'>
+                <Sider className="logo"
+                    collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
                     <Menu
                         theme="dark"
                         defaultSelectedKeys={[]}
@@ -64,15 +67,8 @@ export const LayoutComponent = () => {
                         items={items}
                         style={{ height: 360, borderRight: 0 }} />
                 </Sider>
-                <Content
-                    className="site-layout-background"
-                    style={{
-                        padding: 24,
-                        margin: 0,
-                        height: '100%',
-                    }}
-                >
-                    <div>
+                <Content style={{ margin: '0 16px' }}>
+                    <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
                         <Outlet />
                     </div>
                 </Content>
