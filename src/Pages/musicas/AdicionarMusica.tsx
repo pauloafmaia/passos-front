@@ -1,4 +1,4 @@
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, Space } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
 import { api } from '../../lib/api';
@@ -111,12 +111,14 @@ export const AdicionarMusica: React.FC = () => {
                     <Input />
                 </Form.Item>
 
-                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} htmlType='submit'>
-                    {id ? 'ATUALIZAR' : 'ADICIONAR'}
-                </Button>
-                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/musicas')}>
-                    VOLTAR
-                </Button>
+                <Space>
+                    <Button style={{ backgroundColor: '#084d6e', color: 'white' }} htmlType='submit'>
+                        {id ? 'ATUALIZAR' : 'ADICIONAR'}
+                    </Button>
+                    <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/musicas')}>
+                        VOLTAR
+                    </Button>
+                </Space>
             </Form>
         </div>
     );

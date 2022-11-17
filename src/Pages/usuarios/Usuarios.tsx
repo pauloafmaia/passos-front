@@ -100,7 +100,7 @@ export const Usuarios = () => {
                             </td>
                             <td>
                                 <Space>
-                                    <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<EditOutlined />} onClick={showModal}>
+                                    <Button style={{ backgroundColor: '#084d6e', color: 'white' }} icon={<EditOutlined />} onClick={() => editUsuario(usuario.id)}>
                                         Editar
                                     </Button>
                                     <Popconfirm
@@ -120,78 +120,9 @@ export const Usuarios = () => {
                 </tbody>
             </table>
             <br></br>
-            <Button icon={<PlusOutlined />} style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={showModal}>
+            <Button icon={<PlusOutlined />} style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/usuarios/cadastro')}>
                 Cadastrar Usuário
             </Button>
-            <Modal
-                open={open}
-                title="Title"
-                onOk={handleOk}
-                onCancel={handleCancel}
-                footer={null}>
-
-                <Form
-                    {...formItemLayout}
-                    form={form}
-                    name="register"
-                    onFinish={onFinish}
-                    scrollToFirstError
-                >
-                    <Form.Item
-                        name="name"
-                        label="Nome"
-                        rules={[
-                            {
-                                type: 'string',
-                            },
-                            {
-                                required: true,
-                                message: 'Insira o seu nome',
-                            },
-                        ]}
-                    >
-                        <Input />
-                    </Form.Item>
-
-                    <Form.Item
-                        name="email"
-                        label="E-mail"
-                        rules={[
-                            {
-                                type: 'email',
-                                message: 'O e-mail inserido não é válido',
-                            },
-                            {
-                                required: true,
-                                message: 'Insira o seu e-mail',
-                            },
-                        ]}
-                    >
-                        <Input />
-                    </Form.Item>
-
-                    <Form.Item
-                        name="password"
-                        label="Senha"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Insira a sua senha',
-                            }
-                        ]}
-                    >
-                        <Input.Password />
-                    </Form.Item>
-
-                    <Button style={{ backgroundColor: '#084d6e', color: 'white' }} htmlType='submit'>
-                        {id ? 'ATUALIZAR' : 'REGISTRAR'}
-                    </Button>
-                    <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={handleCancel}>
-                        VOLTAR
-                    </Button>
-                </Form>
-
-            </Modal>
         </div >
     )
 }

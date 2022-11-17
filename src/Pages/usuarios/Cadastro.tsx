@@ -2,14 +2,16 @@ import {
     Button,
     Form,
     Input,
+    Space,
 } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
 import { api } from '../../lib/api';
+import './Cadastro.css'
 
 const formItemLayout = {
     labelCol: {
-        xs: { span: 1000 },
+        xs: { span: 10 },
         sm: { span: 8 },
     },
     wrapperCol: {
@@ -18,7 +20,7 @@ const formItemLayout = {
     },
 };
 
-export const Cadastro: React.FC = () => {
+export const Cadastro = () => {
 
     const { id } = useParams()
 
@@ -96,13 +98,16 @@ export const Cadastro: React.FC = () => {
                 >
                     <Input.Password />
                 </Form.Item>
-
-                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} htmlType='submit'>
-                    {id ? 'ATUALIZAR' : 'REGISTRAR'}
-                </Button>
-                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/usuarios')}>
-                    VOLTAR
-                </Button>
+                <div className='row'>
+                    <Space>
+                        <Button style={{ backgroundColor: '#084d6e', color: 'white' }} htmlType='submit'>
+                            {id ? 'ATUALIZAR' : 'ADICIONAR'}
+                        </Button>
+                        <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/usuarios')}>
+                            VOLTAR
+                        </Button>
+                    </Space>
+                </div>
             </Form>
         </div>
     );

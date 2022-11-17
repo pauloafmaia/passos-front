@@ -2,6 +2,7 @@ import {
     Button,
     Form,
     Input,
+    Space,
 } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { openSuccessNotification } from '../../services/notificationService';
@@ -117,12 +118,14 @@ export const AdicionarEvento: React.FC = () => {
                     </TextArea>
                 </Form.Item>
 
-                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} htmlType='submit'>
-                    {id ? 'ATUALIZAR' : 'ADICIONAR'}
-                </Button>
-                <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/eventos')}>
-                    VOLTAR
-                </Button>
+                <Space>
+                    <Button style={{ backgroundColor: '#084d6e', color: 'white' }} htmlType='submit'>
+                        {id ? 'ATUALIZAR' : 'ADICIONAR'}
+                    </Button>
+                    <Button style={{ backgroundColor: '#084d6e', color: 'white' }} onClick={() => navigate('/eventos')}>
+                        VOLTAR
+                    </Button>
+                </Space>
             </Form>
         </div>
     );
