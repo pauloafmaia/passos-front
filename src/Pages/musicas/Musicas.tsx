@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { api } from "../../lib/api"
 import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button, Popconfirm, Space } from "antd";
+import { Button, Popconfirm, Space, Table } from "antd";
 import { useNavigate } from "react-router-dom";
 import { openSuccessNotification } from "../../services/notificationService";
 import './Musicas.css'

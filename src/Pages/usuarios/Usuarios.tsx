@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { openSuccessNotification } from "../../services/notificationService";
 import './usuarios.css'
 
-interface UsuarioGet {
+interface UserGet {
     id: number,
     name: string,
     email: string
@@ -60,7 +60,7 @@ export const Usuarios = () => {
 
     const navigate = useNavigate();
 
-    const [usuarios, setUsuarios] = useState<UsuarioGet[]>([])
+    const [usuarios, setUsuarios] = useState<UserGet[]>([])
     const getUsuarios = () => api.get("/user").then(res => {
         setUsuarios(res.data);
     });
